@@ -1,0 +1,58 @@
+
+
+git branch -d <branch-name>
+
+Note that the -d option is an abbreviation for --delete, which only removes the branch if it is fully merged in its parent branch.
+ If you have unmerged changes, then it will not remove the branch, and you will get an error. 
+You will need to forcibly remove the branch if you want to delete the branch, irrespective of the merge status.
+
+
+ You can use the below command to remove the local branch forcibly:
+ 
+ git branch -D <branchName>
+ 
+ git branch --delete --force <branch_name>
+ 
+ 
+
+git reflog
+The git reflog command allows you to view a log of all the actions that have been performed on your repository, including branch deletions.
+
+
+git branch <branch-name> <commit-id> 
+
+
+will create a new branch called "feature_branch" that points to the commit with the SHA-1 hash <commit-id>. This effectively undoes the deletion of the branch
+
+
+https://refine.ams3.cdn.digitaloceanspaces.com/blog/2022-11-27-git-delete/git-delete-branch-8.png
+
+
+
+
+stashing
+
+
+git stash
+
+ou can reapply previously stashed changes with 
+
+git stash pop
+
+
+Popping your stash removes the changes from your stash and reapplies them to your working copy.
+
+Alternatively, you can reapply the changes to your working copy and keep them in your stash with 
+
+git stash apply
+
+Adding the -u option (or --include-untracked) tells git stash to also stash your untracked files:
+
+ git stash -u
+
+At this point, you can switch branches and do work elsewhere; your changes are stored on your stack.
+ To see which stashes you’ve stored, you can use git stash list:
+ 
+git stash list
+
+git stash drop stash@{0}
