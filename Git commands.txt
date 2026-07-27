@@ -1,6 +1,6 @@
 
 
-git branch -d <branch-name>
+git branch -d <branch-name> 
 
 Note that the -d option is an abbreviation for --delete, which only removes the branch if it is fully merged in its parent branch.
  If you have unmerged changes, then it will not remove the branch, and you will get an error. 
